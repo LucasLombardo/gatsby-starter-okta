@@ -1,22 +1,23 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import Image from "../components/image"
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header
     style={{
-      background: `rebeccapurple`,
+      background: `#FAFBFC`,
       marginBottom: `1.45rem`,
+      borderBottom: `1px solid #E1E4E8`,
     }}
   >
     <div
       style={{
         margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `.4rem 1.2rem .6rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <div style={{ maxWidth: 600, minWidth: 280, margin: `2rem -.5rem 1rem` }}>
         <Link
           to="/"
           style={{
@@ -24,19 +25,11 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <Image alt="Okta + Gatsby" />
         </Link>
-      </h1>
+      </div>
     </div>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
