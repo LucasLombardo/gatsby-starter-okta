@@ -1,0 +1,6 @@
+# ensure only LF line endings get committed
+*.txt text
+*.html text
+*.css text
+*.js text
+*.md text
