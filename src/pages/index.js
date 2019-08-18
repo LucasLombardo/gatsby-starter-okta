@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,10 +8,8 @@ const IndexPage = () => (
     <SEO title="Home" />
 
     <h1>Gatsby Starter Okta</h1>
-    <p>Welcome to your new Gatsby site.</p>
+    <p>Welcome to your new Gatsby authenticated gatsby site.</p>
     <p>Now go build something great.</p>
-
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
 

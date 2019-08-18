@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Header from "./header"
+import Nav from "./nav"
 import "./layout.css"
 
 const Layout = ({ children }) => (
@@ -17,6 +18,7 @@ const Layout = ({ children }) => (
       }}
     >
       <main>{children}</main>
+      <Nav />
     </div>
   </>
 )
