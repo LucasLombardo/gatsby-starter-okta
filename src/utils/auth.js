@@ -28,3 +28,10 @@ export const useWidget = redirect => {
     return () => widget.remove()
   }, [])
 }
+
+export const signOut = () => {
+  widget.authClient
+    .signOut()
+    .catch(console.error)
+    .finally(() => navigate("/signin"))
+}
