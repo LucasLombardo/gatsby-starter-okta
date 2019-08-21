@@ -25,5 +25,6 @@ export const useWidget = redirect => {
         }
       }
     )
+    return () => widget.remove()
   }, [])
 }
