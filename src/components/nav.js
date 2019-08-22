@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import { signOut } from "../utils/auth"
+import { signOut, useAuth } from "../utils/auth"
 
 const Nav = () => {
+  const { claims } = useAuth()
   return (
     <nav>
       <ul>
@@ -16,10 +17,11 @@ const Nav = () => {
           <Link to="/protected-page/">Protected Page</Link>
         </li>
         <li>
-          <Link to="/signin/">Sign In</Link>
-        </li>
-        <li>
-          <button onClick={signOut}>Sign Out</button>
+          {claims ? (
+            <button onClick={signOut}>Sign Out</button>
+          ) : (
+            <Link to="/signin/">Sign In</Link>
+          )}
         </li>
       </ul>
     </nav>
