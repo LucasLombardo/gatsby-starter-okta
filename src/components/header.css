@@ -2,18 +2,20 @@ header {
   background: #fafbfc;
   margin-bottom: 1.45rem;
   border-bottom: 1px solid #e1e4e8;
-  padding-bottom: 0.3rem;
+  padding: 1.2rem 0 0.3rem;
+  min-width: 360px;
 }
 .header-content {
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 520px;
 }
 .logo {
   max-width: 440px;
-  margin: 1.2rem 0 0.8rem;
+  margin: 0 auto 0.8rem;
 }
 nav ul {
   display: flex;
+  justify-content: center;
   margin: 0;
 }
 nav li {
@@ -34,4 +36,23 @@ nav a {
 nav button:hover,
 nav a:hover {
   text-decoration: underline;
+}
+@media only screen and (max-width: 480px) {
+  header {
+    padding: 1.2rem 0.3rem 0.3rem;
+  }
+  nav li {
+    margin: 0 0.6rem;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  nav li {
+    margin: 0 0.4rem;
+    list-style: none;
+  }
+  nav button,
+  nav a {
+    font-size: 0.9rem;
+  }
 }

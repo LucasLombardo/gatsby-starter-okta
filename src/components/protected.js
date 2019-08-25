@@ -7,7 +7,7 @@ const Protected = ({ children }) => {
   const { loading, claims } = useAuth()
   if (loading) return <div>Loading...</div>
   if (!claims) {
-    navigate("/signin", { replace: true })
+    navigate("/signin/", { replace: true })
   }
   return <>{children}</>
 }

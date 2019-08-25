@@ -10,10 +10,9 @@ const Layout = ({ children }) => (
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: 960,
-        minWidth: 280,
-        padding: `0px 1.0875rem 1.45rem`,
-        paddingTop: 0,
+        maxWidth: 580,
+        minWidth: "350px",
+        padding: `1rem 2rem`,
       }}
     >
       <main>{children}</main>

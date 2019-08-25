@@ -6,7 +6,7 @@ const widget = new OktaSignIn({
   baseUrl: `${process.env.GATSBY_OKTA_URL}`,
   clientId: `${process.env.GATSBY_OKTA_CLIENT_ID}`,
   redirectUri: "http://localhost:8000/",
-  logo: "//logo.clearbit.com/okta.com",
+  logo: null, // logo section of widget hidden in signin.css
   authParams: {
     scopes: ["openid", "profile", "email"],
   },
@@ -40,7 +40,7 @@ export const signOut = () => {
     .finally(() => {
       // remove token from tokenManager
       widget.authClient.tokenManager.remove("user_id_token")
-      navigate("/signin")
+      navigate("/signin/")
     })
 }
 

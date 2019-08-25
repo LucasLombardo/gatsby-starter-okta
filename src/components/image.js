@@ -18,7 +18,7 @@ const Image = props => {
     query {
       placeholderImage: file(relativePath: { eq: "gatsby-okta.png" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 440) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
