@@ -2,18 +2,20 @@ import OktaSignIn from "@okta/okta-signin-widget"
 import { useEffect, useLayoutEffect, useState } from "react"
 import { navigate } from "gatsby"
 
-const widget = new OktaSignIn({
-  baseUrl: `${process.env.GATSBY_OKTA_URL}`,
-  clientId: `${process.env.GATSBY_OKTA_CLIENT_ID}`,
-  redirectUri: "http://localhost:8000/",
-  logo: null, // logo section of widget hidden in signin.css
-  authParams: {
-    scopes: ["openid", "profile", "email"],
-  },
-  features: {
-    registration: true,
-  },
-})
+const widget =
+  typeof window !== "undefined" &&
+  new OktaSignIn({
+    baseUrl: `${process.env.GATSBY_OKTA_URL}`,
+    clientId: `${process.env.GATSBY_OKTA_CLIENT_ID}`,
+    redirectUri: "http://localhost:8000/",
+    logo: null, // logo section of widget hidden in signin.css
+    authParams: {
+      scopes: ["openid", "profile", "email"],
+    },
+    features: {
+      registration: true,
+    },
+  })
 
 export const useWidget = redirect => {
   useEffect(() => {
