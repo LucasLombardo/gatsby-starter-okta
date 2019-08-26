@@ -1,5 +1,5 @@
 import OktaSignIn from "@okta/okta-signin-widget"
-import { useEffect, useLayoutEffect, useState } from "react"
+import React, { useEffect, useLayoutEffect, useState, useContext } from "react"
 import { navigate } from "gatsby"
 
 const widget =
@@ -16,6 +16,16 @@ const widget =
       registration: true,
     },
   })
+
+const AuthContext = React.createContext()
+export const AuthProvider = ({ children }) => {
+  const [claims, setClaims] = useState(null)
+  return (
+    <AuthContext.Provider value={{ claims, setClaims }}>
+      {children}
+    </AuthContext.Provider>
+  )
+}
 
 export const useWidget = redirect => {
   useEffect(() => {
@@ -35,20 +45,20 @@ export const useWidget = redirect => {
   }, [])
 }
 
-export const signOut = () => {
-  widget.authClient
-    .signOut()
-    .catch(console.error)
-    .finally(() => {
-      // remove any tokens from tokenManager
-      widget.authClient.tokenManager.clear()
-      navigate("/signin/")
-    })
-}
-
 export const useAuth = () => {
   const [loading, setLoading] = useState(true)
-  const [claims, setClaims] = useState(null)
+  const { claims, setClaims } = useContext(AuthContext)
+
+  const signOut = () => {
+    widget.authClient
+      .signOut()
+      .catch(console.error)
+      .finally(() => {
+        // remove any tokens from tokenManager
+        widget.authClient.tokenManager.clear()
+        setClaims(null)
+      })
+  }
 
   const getClaims = async () => {
     setLoading(true)
@@ -67,5 +77,5 @@ export const useAuth = () => {
     getClaims()
   }, [])
 
-  return { loading, claims }
+  return { loading, claims, signOut }
 }

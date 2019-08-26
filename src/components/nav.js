@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import { signOut, useAuth } from "../utils/auth"
+import { useAuth } from "../utils/auth"
 
 const Nav = () => {
-  const { claims } = useAuth()
+  const { claims, signOut } = useAuth()
   return (
     <nav>
       <ul>
