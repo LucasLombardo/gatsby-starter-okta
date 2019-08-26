@@ -17,7 +17,7 @@ const widget =
     },
   })
 
-const AuthContext = React.createContext()
+const AuthContext = React.createContext({ claims: null, setClaims: () => true })
 export const AuthProvider = ({ children }) => {
   const [claims, setClaims] = useState(null)
   return (
